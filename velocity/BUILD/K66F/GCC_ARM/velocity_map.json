@@ -2,10 +2,10 @@
     {
         "module": "../..",
         "size": {
-            ".text": 37019,
+            ".text": 37066,
             ".data": 473,
             ".bss": 6682,
-            ".text-delta": 0,
+            ".text-delta": 47,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -24,10 +24,10 @@
     {
         "module": "[fill]",
         "size": {
-            ".text": 203,
+            ".text": 204,
             ".data": 7,
             ".bss": 37,
-            ".text-delta": 0,
+            ".text-delta": 1,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -35,10 +35,10 @@
     {
         "module": "[lib]/c.a",
         "size": {
-            ".text": 26113,
+            ".text": 33187,
             ".data": 2472,
             ".bss": 89,
-            ".text-delta": 0,
+            ".text-delta": 7074,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -80,8 +80,8 @@
         "summary": {
             "static_ram": 90568,
             "static_ram_delta": 0,
-            "total_flash": 72998,
-            "total_flash_delta": 0
+            "total_flash": 80120,
+            "total_flash_delta": 7122
         }
     }
 ]
