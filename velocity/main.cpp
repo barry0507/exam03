@@ -91,8 +91,8 @@ void xbee_rx(void);
 void reply_messange(char *xbee_reply, char *messange);
 
 void check_addr(char *xbee_reply, char *messenger);
-float vx=0;
-float vy=0;
+float vx[10000];
+float vy[10000];
 
 int main(){
 
@@ -283,7 +283,7 @@ void check_addr(char *xbee_reply, char *messenger){
 
 }
 void getAcc(Arguments *in, Reply *out) {
-
+    int i=1;
    int16_t acc16;
 
    float t[3];
@@ -291,7 +291,8 @@ void getAcc(Arguments *in, Reply *out) {
    uint8_t res[6];
 
    FXOS8700CQ_readRegs(FXOS8700Q_OUT_X_MSB, res, 6);
-
+    vx[0]=0;
+    vy[0]=0;
 
    acc16 = (res[0] << 6) | (res[1] >> 2);
 
@@ -318,17 +319,18 @@ void getAcc(Arguments *in, Reply *out) {
       acc16 -= UINT14_MAX;
 
    t[2] = ((float)acc16) / 4096.0f;
-    vx=vx+t[0]*0.1;
-    vy=vy+t[1]*0.1;
+    vx[i]=vx[i-1]+t[0]*0.1;
+    vy[i]=vy[i-1]+t[1]*0.1;
 
    pc.printf("FXOS8700Q Velocity: X=%1.4f(%x%x) Y=%1.4f(%x%x) ",\
 
-         vx, res[0], res[1],\
+         vx[i], res[0], res[1],\
 
-         vy, res[2], res[3]
+         vy[i], res[2], res[3]
 
    );
     wait(0.1);
+    i++;//bbb
 }
 
 
